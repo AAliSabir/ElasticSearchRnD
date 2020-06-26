@@ -92,21 +92,11 @@ namespace ElasticSearchTesting
             Console.WriteLine("Query Results Started");
             Console.WriteLine();
 
-            foreach(Dictionary<string, object> b in searchResults.Documents)
+            foreach (Laptop laptop in searchResults.Documents)
             {
-                Console.WriteLine("----------");
-                foreach (KeyValuePair<string, object> x in b)
-                {
-                    Console.Write(x.Key + " : "+ x.Value + ", ");
-                }
-                Console.WriteLine("----------");
+                //Console.WriteLine("core : " + laptop["core"] + ", ssd : " + laptop["ssd"] + ", ram" + laptop["ram"] + ", gen : " + laptop["gen"] + ", make : " + laptop["make"]);
+                Console.WriteLine("core : " + laptop.core + ", ssd : " + laptop.ssd + ", ram" + laptop.ram + ", gen : " + laptop.gen + ", make : " + laptop.make);
             }
-
-            //foreach (Laptop laptop in searchResults.Documents)
-            //{
-            //    //Console.WriteLine("core : " + laptop["core"] + ", ssd : " + laptop["ssd"] + ", ram" + laptop["ram"] + ", gen : " + laptop["gen"] + ", make : " + laptop["make"]);
-            //    Console.WriteLine("core : " + laptop.core + ", ssd : " + laptop.ssd + ", ram" + laptop.ram + ", gen : " + laptop.gen + ", make : " + laptop.make);
-            //}
 
             Console.WriteLine();
             Console.WriteLine("Query Results Ended");
@@ -173,7 +163,6 @@ namespace ElasticSearchTesting
 
         static void parseKeyValuePairs(Dictionary<string, object> dict)
         {
-            Console.WriteLine("****");
 
             foreach (KeyValuePair<string, object> x in dict)
             {
@@ -188,7 +177,6 @@ namespace ElasticSearchTesting
                     Console.WriteLine(x.Key + " : " + x.Value);
                 }
             }
-            Console.WriteLine("****");
 
         }
 
