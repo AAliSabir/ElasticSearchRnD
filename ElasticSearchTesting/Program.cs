@@ -1,4 +1,5 @@
-﻿using Nest;
+﻿using ElasticSearchTesting.XML;
+using Nest;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,17 +20,14 @@ namespace ElasticSearchTesting
 
             try
             {
-                var node = new Uri("http://40.74.55.129:9200");
+                string xsdPath = "E://TPS//ElasticSearchTesting//ElasticSearchTesting//XML//pacs.028.001.04_0.xsd";
+                string xmlPath = "E://TPS//ElasticSearchTesting//ElasticSearchTesting//XML//SampleXmls//pacs.028.001.04_0.xml";
 
-                var settings = new ConnectionSettings(node);
+                XsdParsing xsdParsing = new XsdParsing();
+                xsdParsing.XsdToXml(xsdPath, xmlPath);
 
-                Console.WriteLine("Connecting to Elastic Search ...");
-
-                var client = new ElasticClient(settings);
-
-                Console.WriteLine("Elastic Search Connected Successfully !");
-                
-                queryDocuments2(client);
+                //var client = connectElasticSearch();
+                //queryDocuments2(client);
                 //addNewDocument(client);
                 //addListOfDocs(client);
             }
@@ -39,6 +37,21 @@ namespace ElasticSearchTesting
             }
 
             Console.ReadLine();
+        }
+
+        static ElasticClient connectElasticSearch()
+        {
+            var node = new Uri("http://40.74.55.129:9200");
+
+            var settings = new ConnectionSettings(node);
+
+            Console.WriteLine("Connecting to Elastic Search ...");
+
+            var client = new ElasticClient(settings);
+
+            Console.WriteLine("Elastic Search Connected Successfully !");
+
+            return client;
         }
 
         static void addNewDocument(ElasticClient client)

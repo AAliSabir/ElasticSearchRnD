@@ -1,0 +1,248 @@
+{
+	"schema": [
+		{
+			"Name": "ApplMessageProtocol",
+			"Length": "3",
+			"FieldType": "AlphaNumeric",
+			"Encoding": "ASCII",
+			"Format": "Fixed",
+			"isRequired": "Mandatory",
+			"padchar": "",
+			"Regex": "",
+			"ISO20022Field": "NA"
+		},
+		{
+			"Name": "Product",
+			"Length": "2",
+			"FieldType": "Numeric",
+			"Encoding": "ASCII",
+			"Format": "Fixed",
+			"isRequired": "Mandatory",
+			"padchar": "",
+			"Regex": "",
+			"ISO20022Field": "NA"
+		},
+		{
+			"Name": "Version",
+			"Length": "2",
+			"FieldType": "Numeric",
+			"Encoding": "ASCII",
+			"Format": "Fixed",
+			"isRequired": "Mandatory",
+			"padchar": "",
+			"Regex": "",
+			"ISO20022Field": "NA"
+		},
+		{
+			"Name": "FIELD_IN_ERROR",
+			"Length": "3",
+			"FieldType": "Numeric",
+			"Encoding": "ASCII",
+			"Format": "Fixed",
+			"isRequired": "Mandatory",
+			"padchar": "",
+			"Regex": "",
+			"ISO20022Field": "NA"
+		},
+		{
+			"Name": "ACQUIRER_TYPE",
+			"Length": "1",
+			"FieldType": "Numeric",
+			"Encoding": "ASCII",
+			"Format": "Fixed",
+			"isRequired": "Mandatory",
+			"padchar": "0",
+			"Regex": "",
+			"ISO20022Field": "NA"
+		},
+		{
+			"Name": "ISSUER_TYPE",
+			"Length": "1",
+			"FieldType": "Numeric",
+			"Encoding": "ASCII",
+			"Format": "Fixed",
+			"isRequired": "Mandatory",
+			"padchar": "0",
+			"Regex": "",
+			"ISO20022Field": "NA"
+		},
+		{
+			"Name": "MESSAGE_TYPE",
+			"Length": "4",
+			"FieldType": "Numeric",
+			"Encoding": "ASCII",
+			"Format": "Fixed",
+			"isRequired": "Mandatory",
+			"padchar": "",
+			"Regex": "",
+			"ISO20022Field": "NA"
+		},
+		{
+			"Name": "EMV_TAG_DATA",
+			"Length": "510",
+			"FieldType": "TLV",
+			"Encoding": "BCD",
+			"Format": "LVariable",
+			"isRequired": "Optional",
+			"padchar": "",
+			"Regex": "",
+			"ISO20022Field": "NA",
+			"SubFields": [
+				{
+					"Name": "9F26",
+					"Length": "16",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "9F10",
+					"Length": "33",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "9F37",
+					"Length": "8",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "9F36",
+					"Length": "4",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "95",
+					"Length": "10",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "9A",
+					"Length": "6",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "9C",
+					"Length": "2",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "9F02",
+					"Length": "12",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "5F2A",
+					"Length": "4",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "9F1A",
+					"Length": "4",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "82",
+					"Length": "4",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "9F03",
+					"Length": "12",
+					"FieldType": "Hex",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "5F34",
+					"Length": "2",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				},
+				{
+					"Name": "9F27",
+					"Length": "2",
+					"FieldType": "Numeric",
+					"Encoding": "BCD",
+					"Format": "TLVSubField",
+					"isRequired": "Optional",
+					"padchar": "",
+					"Regex": "",
+					"ISO20022Field": "NA"
+				}
+			]
+		}
+	]
+}
