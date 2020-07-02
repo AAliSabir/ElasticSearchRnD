@@ -66,7 +66,11 @@
     <Compile Include="XML\XmlGenerator\InstanceElement.cs" />
     <Compile Include="XML\XmlGenerator\InstanceGroup.cs" />
     <Compile Include="XML\XmlGenerator\InstanceObject.cs" />
+    <Compile Include="XML\XmlGenerator\Schema_XElement.cs" />
     <Compile Include="XML\XmlGenerator\XmlSampleGenerator.cs" />
+    <Compile Include="XML\XmlGenerator\XMLSchema_Restriction.cs" />
+    <Compile Include="XML\XmlGenerator\XPathGenerator.cs" />
+    <Compile Include="XML\XmlGenerator\XPathHelper.cs" />
     <Compile Include="XML\XsdParsing.cs" />
   </ItemGroup>
   <ItemGroup>

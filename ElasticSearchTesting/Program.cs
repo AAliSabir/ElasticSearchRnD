@@ -1,4 +1,5 @@
 ﻿using ElasticSearchTesting.XML;
+using ElasticSearchTesting.XML.XmlGenerator;
 using Nest;
 using Newtonsoft.Json;
 using System;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace ElasticSearchTesting
 {
@@ -20,16 +22,57 @@ namespace ElasticSearchTesting
 
             try
             {
-                string xsdPath = "E://TPS//ElasticSearchTesting//ElasticSearchTesting//XML//pacs.028.001.04_0.xsd";
-                string xmlPath = "E://TPS//ElasticSearchTesting//ElasticSearchTesting//XML//SampleXmls//pacs.028.001.04_0.xml";
 
-                XsdParsing xsdParsing = new XsdParsing();
-                xsdParsing.XsdToXml(xsdPath, xmlPath);
+                //string xsdPath = "D://Sparrow//rnd//ElasticSearchRnD//ElasticSearchTesting//XML//pacs.028.001.04_0.xsd";
+                //string xmlPath = "D://Sparrow//rnd//ElasticSearchRnD//ElasticSearchTesting//XML//SampleXmls//pacs.028.001.04_0.xml";
+
+                //XsdParsing xsdParsing = new XsdParsing();
+                //xsdParsing.XsdToXml(xsdPath, xmlPath);
+
+
+                ////  ==================
 
                 //var client = connectElasticSearch();
                 //queryDocuments2(client);
                 //addNewDocument(client);
                 //addListOfDocs(client);
+
+
+
+                ////  =======all xpaths from sampel xml===========
+
+                //XmlDocument doc = new XmlDocument();
+
+
+                //doc.Load("D://Sparrow//rnd//ElasticSearchRnD//ElasticSearchTesting//XML//SampleXmls//pacs.028.001.04_0.xml");
+                //XPathGenerator pathGenerator = new XPathGenerator();
+
+                //foreach (XmlNode node in doc.ChildNodes)
+                //    pathGenerator.ExamineNode(node, "");
+
+                //Console.WriteLine("Done Examining Nodes");
+
+
+                //foreach (var item in pathGenerator.xPath_Leaf)
+                //{
+                //    Console.WriteLine(item);
+                //}
+
+
+                //// ==============================
+                ///
+
+                //new Schema_XElement().getSchemaElement();
+
+                //// ==============schema - type for interactive UI================
+
+                var xElem = new Schema_XElement();
+             //   xElem.loadSchema();
+              // var element = xElem.GetElementMaxLength("Cd");
+
+                xElem.loadXMLSchemaElements();
+
+                Console.ReadLine();
             }
             catch (Exception ex)
             {
@@ -99,7 +142,7 @@ namespace ElasticSearchTesting
             // var searchResults = client.Search<Laptop>(searchRequest);
 
             var searchResults = client.Search<object>(s => s.AllIndices().QueryOnQueryString("lenovo"));
-            
+
             // var searchResults = client.Search<Laptop>(s => s.AllIndices().MatchAll());
 
             Console.WriteLine("Query Results Started");
@@ -133,7 +176,7 @@ namespace ElasticSearchTesting
             {
                 Field = "CstmrCdtTrfInitn.GrpHdr.MsgId",
                 GreaterThanOrEqualTo = "2009-09-28T14:07:00",
-                LessThanOrEqualTo = "2009-09-28T14:07:00"                
+                LessThanOrEqualTo = "2009-09-28T14:07:00"
             };
 
             //search by amount range
@@ -179,9 +222,9 @@ namespace ElasticSearchTesting
 
             foreach (KeyValuePair<string, object> x in dict)
             {
-                if(x.Value.GetType().Equals(typeof(Dictionary<string, object>)))
+                if (x.Value.GetType().Equals(typeof(Dictionary<string, object>)))
                 {
-                    Console.WriteLine(x.Key + " : " );
+                    Console.WriteLine(x.Key + " : ");
                     dynamic newDict = x.Value;
                     parseKeyValuePairs(newDict);
                 }
